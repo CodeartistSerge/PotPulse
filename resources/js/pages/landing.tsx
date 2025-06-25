@@ -19,7 +19,6 @@ export default function Landing({ name }:LandingProps) {
 			<Layout>
 				<Container
 					className="
-						caContainer-col
 						before:content['']
 						before:absolute
 						before:block
@@ -29,16 +28,20 @@ export default function Landing({ name }:LandingProps) {
 						before:-translate-y-1/2
 						before:w-[100vw]
 						before:h-[100%]
-						before:bg-accent
+						before:bg-canvas
 						before:z-1
 					"
 				>
-					<h1>Hi there {name}~</h1>
-					<h2>Hi there {name}~</h2>
-					<h3>Hi there {name}~</h3>
-					<h4>Hi there {name}~</h4>
-					<h5>Hi there {name}~</h5>
-					<h6>Hi there {name}~</h6>
+					<div className="grid grid-cols-2 gap-16">
+						<div>
+							<h1>Feel the <span className="text-accent">pulse</span> of every pot</h1>
+							<p>PotPulse learns from your weather and quick soil checks to nudge you just in time - never too early, never too late</p>
+						</div>
+						<div>
+							<h1>Feel the pulse of every pot.</h1>
+							<p>PotPulse learns from your weather and quick soil checks to nudge you just in time - never too early, never too late.</p>
+						</div>
+					</div>
 				</Container>
 			</Layout>
 		</>

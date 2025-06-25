@@ -4,7 +4,16 @@ import { Link } from '@inertiajs/react';
 
 export default function Header() {
 	return (
-		<Container className='caContainer-row'>
+		<Container direction='row'>
+			<div className='w-[5rem] flex-grow-0'>
+				<Link href='/'>
+					<img
+						src='/assets/logo/logo.svg'
+						alt='PotPulse'
+						className='w-full h-auto'
+					/>
+				</Link>
+			</div>
 			<div className='w-[5rem] flex-grow-0'>
 				<Link href='/'>
 					<img
