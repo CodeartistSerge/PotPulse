@@ -59,10 +59,12 @@
     --color-sidebar-ring: var(--sidebar-ring);
 
 	/* Custom colors */
-	--color-accent: #7BCC6B; /* Green */
-	--color-primary: #FFD96A; /* Yellow */
-	--color-canvas: #FFF8E6; /* Pastel Yellow */
-	--color-text: #6B4F2A; /* Brown */
+	--color-accent: #5AAE44; /* Green */
+	--color-primary: #FFB347; /* --color-highlight */
+	--color-highlight: #FFB347;  /* Warm orange-yellow for buttons and key accents */
+	--color-canvas: #FFF9F0; /* Pastel Yellow */
+	--color-text: #3E2F1B; /* Brown */
+	--color-secondary: #A8D0E6; /* Light sky-blue touch to bring freshness */
 }
 
 /*
@@ -173,12 +175,39 @@
 			> * {
 				font-size: inherit;
 			}
+			&:not(:last-child) {
+				/* margin-bottom: 2.4rem; */
+				margin-bottom: 0.4em;
+			}
+		}
+		h1, h2, h5 {
+			text-transform: uppercase;
+		}
+		h2, h3, h4, h5, h6, p {
+			&:first-child {
+				margin-top: -0.25em;
+			}
 		}
 		* {
 			@apply text-[2rem] text-text
 		}
 		h1 {
-			@apply font-bold text-[6rem] leading-tight;
+			@apply font-bold text-[6rem] leading-tight relative py-8;
+			@apply before:bg-text after:bg-text;
+			&:before,
+			&:after {
+				content: '';
+				display: block;
+				position: absolute;
+				width: 9rem;
+				height: 6px;
+				top: 0;
+				left: 0;
+			}
+			&::after {
+				top:auto;
+				bottom: 0;
+			}
 		}
 		h2 {
 			@apply font-bold text-[4.8rem];
@@ -190,13 +219,38 @@
 			@apply font-semibold text-[3.072rem];
 		}
 		h5 {
-			@apply font-medium text-[2.4576rem];
+			@apply font-medium text-[2.4576rem] py-4 relative;
+			@apply before:bg-text after:bg-text;
+			&:before,
+			&:after {
+				content: '';
+				display: block;
+				position: absolute;
+				width: 3rem;
+				height: 3px;
+				top: 0;
+				left: 50%;
+				transform: translate(-50%, 0);
+			}
+			&::after {
+				top:auto;
+				bottom: 0;
+			}
 		}
 		h6 {
 			@apply font-medium text-[1.96608rem];
 		}
 		p {
-
+			@apply text-[2rem] leading-[1.6];
+			&:not(:last-child) {
+				margin-bottom: 2.4rem;
+			}
+		}
+		small {
+			@apply text-[1.6rem];
+			&:not(:last-child) {
+				margin-bottom: 1.6rem;
+			}
 		}
 		a {
 
