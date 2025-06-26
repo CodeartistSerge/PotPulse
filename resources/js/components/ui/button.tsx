@@ -43,7 +43,7 @@ const buttonVariants = cva([
 				'border',
 				'border-accent',
 				'text-accent',
-				'hover:bg-accent/10',
+				'hover:bg-white/90',
 			],
 			highlight: [
 				'bg-highlight',
@@ -55,9 +55,11 @@ const buttonVariants = cva([
 		purpose: {
 			regular: [],
 			header: [
-				'py-4',
+				'py-0',
+				'leading-[2em]',
+				'h-[2.2em]',
 				'font-["Raleway",sans-serif]',
-				'font-normal',
+				// 'font-normal',
 			],
 		}
 	},

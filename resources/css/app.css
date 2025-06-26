@@ -62,7 +62,7 @@
 	--color-accent: #5AAE44; /* Green */
 	--color-primary: #FFB347; /* --color-highlight */
 	--color-highlight: #FFB347;  /* Warm orange-yellow for buttons and key accents */
-	--color-canvas: #FFF9F0; /* Pastel Yellow */
+	--color-canvas: #F9F6E2; /* Pastel Yellow */
 	--color-text: #3E2F1B; /* Brown */
 	--color-secondary: #A8D0E6; /* Light sky-blue touch to bring freshness */
 }
@@ -168,6 +168,13 @@
 		font-family:'Raleway',sans-serif;
     }
 
+	@keyframes short-ping {
+		75%, 100% {
+			transform: scale(1.4, 1.3);
+			opacity: 0;
+		}
+	}
+
 	html {
 		font-size: calc(10px * var(--font-scale));
 		h1, h2, h3, h4, h5, h6 {
@@ -182,6 +189,7 @@
 		}
 		h1, h2, h5 {
 			text-transform: uppercase;
+			letter-spacing: -0.025em;
 		}
 		h2, h3, h4, h5, h6, p {
 			&:first-child {
@@ -191,7 +199,7 @@
 		* {
 			@apply text-[2rem] text-text
 		}
-		h1 {
+		h1, h2 {
 			@apply font-bold text-[6rem] leading-tight relative py-8;
 			@apply before:bg-text after:bg-text;
 			&:before,
@@ -199,12 +207,13 @@
 				content: '';
 				display: block;
 				position: absolute;
-				width: 9rem;
+				width: 18rem;
 				height: 6px;
 				top: 0;
 				left: 0;
 			}
 			&::after {
+				width: 9rem;
 				top:auto;
 				bottom: 0;
 			}
@@ -216,7 +225,23 @@
 			@apply font-semibold text-[3.84rem];
 		}
 		h4 {
-			@apply font-semibold text-[3.072rem];
+			@apply font-semibold text-[3.072rem] relative py-2 uppercase;
+			@apply before:bg-text after:bg-text;
+			&:before,
+			&:after {
+				content: '';
+				display: block;
+				position: absolute;
+				width: 8rem;
+				height: 3px;
+				top: 0;
+				left: 0;
+			}
+			&::after {
+				width: 4rem;
+				top:auto;
+				bottom: 0;
+			}
 		}
 		h5 {
 			@apply font-medium text-[2.4576rem] py-4 relative;
@@ -226,13 +251,14 @@
 				content: '';
 				display: block;
 				position: absolute;
-				width: 3rem;
+				width: 6rem;
 				height: 3px;
 				top: 0;
 				left: 50%;
 				transform: translate(-50%, 0);
 			}
 			&::after {
+				width: 3rem;
 				top:auto;
 				bottom: 0;
 			}
@@ -243,7 +269,7 @@
 		p {
 			@apply text-[2rem] leading-[1.6];
 			&:not(:last-child) {
-				margin-bottom: 2.4rem;
+				margin-bottom: 0.5em;
 			}
 		}
 		small {

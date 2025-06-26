@@ -19,7 +19,7 @@ export default function Landing({ name }:LandingProps) {
 			</Head>
 			<Layout>
 				<Container background="canvas">
-					<div className="grid grid-cols-2 gap-32 z-2 relative">
+					<div className="grid grid-cols-2 gap-32 z-2 relative items-center">
 						<div>
 							<h1>Feel the <span className="text-accent">pulse</span> of every pot</h1>
 							<p>PotPulse learns from your weather and quick soil checks to nudge you just in time - never too early, never too late</p>
@@ -33,12 +33,8 @@ export default function Landing({ name }:LandingProps) {
 								bg-primary
 								rounded-lg
 								w100
-								h-[30rem]
+								h-auto
 								relative
-								top-1/2
-								left-1/2
-								-translate-x-1/2
-								-translate-y-1/2
 								overflow-hidden
 
 								before:content['']
@@ -59,12 +55,23 @@ export default function Landing({ name }:LandingProps) {
 									className="
 										w-100%
 										h-auto
+										stroke-white
+									"
+								/>
+								<img
+									src='/assets/logo/logo-w.svg'
+									alt='PotPulse'
+									className="animate-[short-ping_1s_ease-in-out_infinite]
+										w-[17rem]
+										h-auto
 										absolute
 										top-1/2
 										left-1/2
 										-translate-x-1/2
 										-translate-y-1/2
 										stroke-white
+										z-5
+										opacity-60
 									"
 								/>
 								<img
@@ -80,7 +87,6 @@ export default function Landing({ name }:LandingProps) {
 										-translate-y-1/2
 										stroke-white
 										z-5
-										opacity-60
 									"
 								/>
 							</div>
@@ -91,44 +97,87 @@ export default function Landing({ name }:LandingProps) {
 					<div className="grid grid-cols-3 gap-32 z-2 relative items-start">
 						<div className="flex flex-col align-center justify-center">
 							<img
-								src='/assets/landing-hero.png'
+								src='/assets/water-plant.png'
 								alt='PotPulse'
 								className="w100% h-auto -mb-32"
 							/>
-							<div className="block bg-canvas w-[60%] h-[0] pb-[60%] rounded-lg ml-[20%] mb-12 shadow-lg relative">
+							<div className="block bg-white w-[60%] h-[0] pb-[60%] rounded-lg ml-[20%] mb-12 shadow-lg relative">
 								<h5 className="text-center absolute w-[80%] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">Smart Reminders</h5>
 							</div>
 							<p>Weather-aware nudges tuned by your quick "dry or not" check. Weather-aware nudges tuned by your quick "dry or not" check.</p>
 						</div>
 						<div className="flex flex-col align-center justify-center">
 							<img
-								src='/assets/landing-hero.png'
+								src='/assets/watering.png'
 								alt='PotPulse'
 								className="w100% h-auto -mb-32"
 							/>
-							<div className="block bg-canvas w-[60%] h-[0] pb-[60%] rounded-lg ml-[20%] mb-12 shadow-lg relative">
+							<div className="block bg-white w-[60%] h-[0] pb-[60%] rounded-lg ml-[20%] mb-12 shadow-lg relative">
 								<h5 className="text-center absolute w-[80%] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">Zero Over-Watering</h5>
 							</div>
 							<p>Forget root-rot: PotPulse learns your plant's rhythm and shifts alerts automatically. Forget root-rot: PotPulse learns your plant's rhythm and shifts alerts automatically.</p>
 						</div>
 						<div className="flex flex-col align-center justify-center">
 							<img
-								src='/assets/landing-hero.png'
+								src='/assets/bedroom-plants.png'
 								alt='PotPulse'
 								className="w100% h-auto -mb-32"
 							/>
-							<div className="block bg-canvas w-[60%] h-[0] pb-[60%] rounded-lg ml-[20%] mb-12 shadow-lg relative">
+							<div className="block bg-white w-[60%] h-[0] pb-[60%] rounded-lg ml-[20%] mb-12 shadow-lg relative">
 								<h5 className="text-center absolute w-[80%] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">One-Tap Updates</h5>
 							</div>
 							<p>Mark whole shelves at once. Bye-bye, notification clutter. Mark whole shelves at once. Bye-bye, notification clutter.</p>
 						</div>
 					</div>
 				</Container>
+				<Container background="canvas" className="gap-8  items-center justify-center" direction='row'>
+					<div className="w-[30%] flex-grow-0">
+						<h2>How It Works</h2>
+					</div>
+					<div className="w-[30%] flex-grow-0">
+						<p>PotPulse gently learns your plant's watering rhythm through simple feedback and weather awareness. No complicated sensors, no stress.</p>
+					</div>
+				</Container>
+				<Container background="white" className="gap-64 pt-60" direction='row'>
+				<div className="relative *:relative *:z-2 ">
+					<div className="[&]:absolute [&]:z-1 text-[18rem] text-accent/20 left-0 -translate-y-65 -translate-x-[7rem] tracking-tighter">01</div>
+					<img
+						src='/assets/add-plant-1.png'
+						alt='PotPulse'
+						className="w100% h-auto mb-16"
+					/>
+					<h4 className="mb-16">Add Your Plants</h4>
+					<p className="mb-24">Pick a soil type, container size, and maturity level-just once per plant.</p>
+				</div>
+				<div className="relative *:relative *:z-2 pt-32">
+					<div className="[&]:absolute [&]:z-1 text-[18rem] text-accent/20 left-0 -translate-y-65 -translate-x-[7rem] tracking-tighter">02</div>
+					<img
+						src='/assets/weather-1.png'
+						alt='PotPulse'
+						className="w100% h-auto mb-16"
+					/>
+					<h4 className="mb-16">Let Weather Sync</h4>
+					<p className="mb-24">PotPulse checks humidity and heat daily, adapting to your local forecast.</p>
+				</div>
+				<div className="relative *:relative *:z-2 pt-64">
+					<div className="[&]:absolute [&]:z-1 text-[18rem] text-accent/20 left-0 -translate-y-65 -translate-x-[7rem] tracking-tighter">03</div>
+					<img
+						src='/assets/lush.png'
+						alt='PotPulse'
+						className="w100% h-auto mb-16"
+					/>
+					<h4 className="mb-16">Give Feedback</h4>
+					<p className="mb-24">Get a gentle nudge-tap "dry" or "still moist". PotPulse learns fast evolving its reminders.</p>
+				</div>
+				</Container>
 				<Container background="canvas" className="text-center">
 					<div>
-						<h3>Let the sunshine in</h3>
-						<p>Join a handful of plant lovers shaping the future of easy care.</p>
-						<Button text="Request Invote" />
+						<h3>Enjoy the Rhythm</h3>
+						<div className="mb-12">
+							<p>PotPulse evolves its reminders as your plants grow.</p>
+							<p>Join a handful of plant lovers shaping the future of easy care.</p>
+						</div>
+						<Button text="Request Invite" />
 					</div>
 				</Container>
 			</Layout>

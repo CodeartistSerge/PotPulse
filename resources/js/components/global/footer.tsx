@@ -5,14 +5,14 @@ import { Link } from '@inertiajs/react';
 
 export default function Footer() {
 	return (
-		<Container className="
+		<Container background="accent" className="
 			text-center
 			z-10
 			py-8
 			before:shadow-lg
 			before:-scale-y-100
 		">
-			<small>© 2025 PotPulse • Made with 🌱 in New Zealand </small>
+			<small className="text-white">© 2025 PotPulse • Made with love in New Zealand </small>
 		</Container>
 	)
 }
