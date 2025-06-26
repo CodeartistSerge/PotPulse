@@ -2,17 +2,19 @@ import { Head } from '@inertiajs/react'
 import Layout from '@/layouts/main-layout';
 import Container from '@/components/layout/container';
 import Button from '@/components/ui/button';
-import { use, useId } from 'react';
+import { useId } from 'react';
 
 interface LandingProps {
 	name: string;
 }
 
 export default function Landing({ name }:LandingProps) {
+	const uniqueID = useId();
+	let counter = 0;
 	return (
 		<>
 			<Head
-				title="Welcome"
+				title={`Welcome ${name}`}
 			>
 				<link rel="preconnect" href="https://fonts.googleapis.com"/>
 				<link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -165,9 +167,8 @@ export default function Landing({ name }:LandingProps) {
 								image: '/assets/lush.png',
 							},
 						];
-						const uniqueID = useId();
 						return data.map((item) => (
-							<div className={`relative *:relative *:z-2 pt-0 ${item.id > 1 ? 'pt-32 md:pt-' + 32 * (item.id - 1) : ''}`} key={uniqueID + item.id}>
+							<div className={`relative *:relative *:z-2 pt-0 ${item.id > 1 ? 'pt-32 md:pt-' + 32 * (item.id - 1) : ''}`} key={uniqueID + (counter++)}>
 								<div className="[&]:absolute [&]:z-1 text-[18rem] text-accent/20 left-0 -translate-y-65 -translate-x-[7rem] tracking-tighter">0{item.id}</div>
 								<img
 									src={item.image}

@@ -1,4 +1,3 @@
-import { type ReactNode } from 'react';
 import Container from '@/components/layout/container';
 import Button from '@/components/ui/button';
 import { Link } from '@inertiajs/react';
