@@ -8,7 +8,12 @@ const containerVariants = cva([
 	'w-100%',
 	'max-w-[140rem]',
 	'mx-auto',
-	'py-32',
+	'xl:py-32',
+	'xl:px-64',
+	'md:py-16',
+	'md:px-32',
+	'py-16',
+	'px-8',
 	'*:relative',
 	'*:z-3',
 	'*:flex-nowrap',
@@ -31,6 +36,10 @@ const containerVariants = cva([
 				'*:flex-grow-1',
 			],
 			row: [
+				'flex-col',
+				'md:flex-row',
+			],
+			alwaysrow: [
 				'flex-row',
 			]
 		},
@@ -59,15 +68,16 @@ const containerVariants = cva([
 });
 
 interface containerProps {
+	id?: string;
 	children: ReactNode;
 	className?: string;
 	direction?: VariantProps<typeof containerVariants>['direction'];
 	background?: VariantProps<typeof containerVariants>['background'];
 }
 
-export default function Container({ children, direction, background, className = '' }: containerProps) {
+export default function Container({ children, direction, background, id, className = '' }: containerProps) {
 	return (
-		<section className={twMerge(containerVariants({ direction, background }), className)} >
+		<section className={twMerge(containerVariants({ direction, background }), className)} id={id}>
 			{children}
 			{background === 'canvas' && (
 				<div className="[&]:static [&]:z-2">
@@ -76,8 +86,10 @@ export default function Container({ children, direction, background, className =
 						[&]:z-2
 						bottom-0
 						left-0
-						-translate-x-[100%]
+						-translate-x-[50%]
 						translate-y-[46%]
+						xl:-translate-x-[100%]
+						xl:translate-y-[46%]
 						rotate-30
 						scale-y-90
 						scale-x-70
@@ -97,8 +109,10 @@ export default function Container({ children, direction, background, className =
 						[&]:z-2
 						top-0
 						right-0
-						translate-x-[80%]
+						translate-x-[70%]
 						-translate-y-[46%]
+						xl:translate-x-[80%]
+						xl:-translate-y-[46%]
 						rotate-30
 						-scale-y-90
 						-scale-x-70

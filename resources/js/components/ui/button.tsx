@@ -1,12 +1,17 @@
+import { Link } from '@inertiajs/react';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { twMerge } from 'tailwind-merge'
 
 const buttonVariants = cva([
 	'bg-accent',
 	'rounded-full',
-	'py-6',
-	'px-10',
+	'py-4',
+	'px-8',
+	'xl:py-6',
+	'xl:px-10',
 	'text-white',
+	'text-[1.4rem]',
+	'xl:text-[2rem]',
 	'shadow-md',
 	'cursor-pointer',
 	'hover:brightness-95',
@@ -55,7 +60,7 @@ const buttonVariants = cva([
 		purpose: {
 			regular: [],
 			header: [
-				'py-0',
+				'py-0!',
 				'leading-[2em]',
 				'h-[2.2em]',
 				'font-["Raleway",sans-serif]',
@@ -73,13 +78,18 @@ const buttonVariants = cva([
 interface buttonProps {
 	text: string;
 	className?: string;
+	href?: string;
 	size?: VariantProps<typeof buttonVariants>['size'];
 	purpose?: VariantProps<typeof buttonVariants>['purpose'];
 	mod?: VariantProps<typeof buttonVariants>['mod'];
 }
 
-export default function Button({ text, size, purpose, mod, className = '' }: buttonProps) {
-	return (
-		<button className={twMerge(buttonVariants({ size, purpose, mod }), className)} >{text}</button>
-	)
+export default function Button({ text, size, purpose, mod, href, className = '' }: buttonProps) {
+	if (href) {
+		return <Link href={href} className={twMerge(buttonVariants({ size, purpose, mod }), className)}>{text}</Link>
+	} else {
+		return (
+			<button className={twMerge(buttonVariants({ size, purpose, mod }), className)} >{text}</button>
+		)
+	}
 }

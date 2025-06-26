@@ -2,6 +2,7 @@ import { Head } from '@inertiajs/react'
 import Layout from '@/layouts/main-layout';
 import Container from '@/components/layout/container';
 import Button from '@/components/ui/button';
+import { use, useId } from 'react';
 
 interface LandingProps {
 	name: string;
@@ -19,16 +20,16 @@ export default function Landing({ name }:LandingProps) {
 			</Head>
 			<Layout>
 				<Container background="canvas">
-					<div className="grid grid-cols-2 gap-32 z-2 relative items-center">
+					<div className="grid grid-cols-1 md:grid-cols-2 gap-16 xl:gap-32 z-2 relative items-center">
 						<div>
 							<h1>Feel the <span className="text-accent">pulse</span> of every pot</h1>
 							<p>PotPulse learns from your weather and quick soil checks to nudge you just in time - never too early, never too late</p>
-							<div className="flex flex-raw gap-4">
+							<div className="flex flex-raw gap-4 mt-12">
 								<Button text="Join the Beta" />
-								<Button text="How it works" mod="transparent" />
+								<Button text="How it works" mod="transparent" href="#how-it-works" />
 							</div>
 						</div>
-						<div className='relative'>
+						<div className='relative -order-1 md:order-2'>
 							<div className="
 								bg-primary
 								rounded-lg
@@ -62,7 +63,8 @@ export default function Landing({ name }:LandingProps) {
 									src='/assets/logo/logo-w.svg'
 									alt='PotPulse'
 									className="animate-[short-ping_1s_ease-in-out_infinite]
-										w-[17rem]
+										w-[12rem]
+										md:w-[17rem]
 										h-auto
 										absolute
 										top-1/2
@@ -78,7 +80,8 @@ export default function Landing({ name }:LandingProps) {
 									src='/assets/logo/logo-w.svg'
 									alt='PotPulse'
 									className="
-										w-[17rem]
+										w-[12rem]
+										md:w-[17rem]
 										h-auto
 										absolute
 										top-1/2
@@ -94,81 +97,88 @@ export default function Landing({ name }:LandingProps) {
 					</div>
 				</Container>
 				<Container background="white">
-					<div className="grid grid-cols-3 gap-32 z-2 relative items-start">
-						<div className="flex flex-col align-center justify-center">
-							<img
-								src='/assets/water-plant.png'
-								alt='PotPulse'
-								className="w100% h-auto -mb-32"
-							/>
-							<div className="block bg-white w-[60%] h-[0] pb-[60%] rounded-lg ml-[20%] mb-12 shadow-lg relative">
-								<h5 className="text-center absolute w-[80%] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">Smart Reminders</h5>
-							</div>
-							<p>Weather-aware nudges tuned by your quick "dry or not" check. Weather-aware nudges tuned by your quick "dry or not" check.</p>
-						</div>
-						<div className="flex flex-col align-center justify-center">
-							<img
-								src='/assets/watering.png'
-								alt='PotPulse'
-								className="w100% h-auto -mb-32"
-							/>
-							<div className="block bg-white w-[60%] h-[0] pb-[60%] rounded-lg ml-[20%] mb-12 shadow-lg relative">
-								<h5 className="text-center absolute w-[80%] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">Zero Over-Watering</h5>
-							</div>
-							<p>Forget root-rot: PotPulse learns your plant's rhythm and shifts alerts automatically. Forget root-rot: PotPulse learns your plant's rhythm and shifts alerts automatically.</p>
-						</div>
-						<div className="flex flex-col align-center justify-center">
-							<img
-								src='/assets/bedroom-plants.png'
-								alt='PotPulse'
-								className="w100% h-auto -mb-32"
-							/>
-							<div className="block bg-white w-[60%] h-[0] pb-[60%] rounded-lg ml-[20%] mb-12 shadow-lg relative">
-								<h5 className="text-center absolute w-[80%] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">One-Tap Updates</h5>
-							</div>
-							<p>Mark whole shelves at once. Bye-bye, notification clutter. Mark whole shelves at once. Bye-bye, notification clutter.</p>
-						</div>
+					<div className="grid grid-cols-1 md:grid-cols-3 gap-32 md:gap-16 xl:gap-32 z-2 relative items-start">
+						{(() => {
+							const data = [
+								{
+									id: 1,
+									title: 'Smart Reminders',
+									description: 'Weather-aware nudges tuned by your quick "dry or not" check. Weather-aware nudges tuned by your quick "dry or not" check.',
+									image: '/assets/water-plant.png',
+								},
+								{
+									id: 2,
+									title: 'Zero Over-Watering',
+									description: 'Forget root-rot: PotPulse learns your plant\'s rhythm and shifts alerts automatically. Forget root-rot: PotPulse learns your plant\'s rhythm and shifts alerts automatically.',
+									image: '/assets/watering.png',
+								},
+								{
+									id: 3,
+									title: 'One-Tap Updates',
+									description: 'Mark whole shelves at once. Bye-bye, notification clutter. Mark whole shelves at once. Bye-bye, notification clutter.',
+									image: '/assets/bedroom-plants.png',
+								},
+							];
+							return data.map((item) => (
+								<div className="flex flex-col align-center justify-center" key={item.id}>
+									<img
+										src={item.image}
+										alt='PotPulse'
+										className="w100% h-auto -mb-24 md:-mb-16 xl:-mb-32"
+									/>
+									<div className="block bg-white w-[60%] h-[0] pb-[60%] rounded-lg ml-[20%] mb-12 shadow-lg relative">
+										<h5 className="text-center absolute w-[80%] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">{item.title}</h5>
+									</div>
+									<p>{item.description}</p>
+								</div>
+							));
+						})()}
 					</div>
 				</Container>
-				<Container background="canvas" className="gap-8  items-center justify-center" direction='row'>
-					<div className="w-[30%] flex-grow-0">
+				<Container background="canvas" className="gap-8 items-center justify-center" direction='row' id="how-it-works">
+					<div className="w-[100%] md:w-[30%] flex-grow-0">
 						<h2>How It Works</h2>
 					</div>
-					<div className="w-[30%] flex-grow-0">
+					<div className="w-[100%] md:w-[30%] flex-grow-0">
 						<p>PotPulse gently learns your plant's watering rhythm through simple feedback and weather awareness. No complicated sensors, no stress.</p>
 					</div>
 				</Container>
-				<Container background="white" className="gap-64 pt-60" direction='row'>
-				<div className="relative *:relative *:z-2 ">
-					<div className="[&]:absolute [&]:z-1 text-[18rem] text-accent/20 left-0 -translate-y-65 -translate-x-[7rem] tracking-tighter">01</div>
-					<img
-						src='/assets/add-plant-1.png'
-						alt='PotPulse'
-						className="w100% h-auto mb-16"
-					/>
-					<h4 className="mb-16">Add Your Plants</h4>
-					<p className="mb-24">Pick a soil type, container size, and maturity level-just once per plant.</p>
-				</div>
-				<div className="relative *:relative *:z-2 pt-32">
-					<div className="[&]:absolute [&]:z-1 text-[18rem] text-accent/20 left-0 -translate-y-65 -translate-x-[7rem] tracking-tighter">02</div>
-					<img
-						src='/assets/weather-1.png'
-						alt='PotPulse'
-						className="w100% h-auto mb-16"
-					/>
-					<h4 className="mb-16">Let Weather Sync</h4>
-					<p className="mb-24">PotPulse checks humidity and heat daily, adapting to your local forecast.</p>
-				</div>
-				<div className="relative *:relative *:z-2 pt-64">
-					<div className="[&]:absolute [&]:z-1 text-[18rem] text-accent/20 left-0 -translate-y-65 -translate-x-[7rem] tracking-tighter">03</div>
-					<img
-						src='/assets/lush.png'
-						alt='PotPulse'
-						className="w100% h-auto mb-16"
-					/>
-					<h4 className="mb-16">Give Feedback</h4>
-					<p className="mb-24">Get a gentle nudge-tap "dry" or "still moist". PotPulse learns fast evolving its reminders.</p>
-				</div>
+				<Container background="white" className="gap-[9.7vw] xl:gap-64 pt-60" direction='row'>
+					{(() => {
+						const data = [
+							{
+								id: 1,
+								title: 'Add Your Plants',
+								description: 'Pick a soil type, container size, and maturity level-just once per plant.',
+								image: '/assets/add-plant-1.png',
+							},
+							{
+								id: 2,
+								title: 'Let Weather Sync',
+								description: 'PotPulse checks humidity and heat daily, adapting to your local forecast.',
+								image: '/assets/weather-1.png',
+							},
+							{
+								id: 3,
+								title: 'Give Feedback',
+								description: 'Get a gentle nudge-tap "dry" or "still moist". PotPulse learns fast evolving its reminders.',
+								image: '/assets/lush.png',
+							},
+						];
+						const uniqueID = useId();
+						return data.map((item) => (
+							<div className={`relative *:relative *:z-2 pt-0 ${item.id > 1 ? 'pt-32 md:pt-' + 32 * (item.id - 1) : ''}`} key={uniqueID + item.id}>
+								<div className="[&]:absolute [&]:z-1 text-[18rem] text-accent/20 left-0 -translate-y-65 -translate-x-[7rem] tracking-tighter">0{item.id}</div>
+								<img
+									src={item.image}
+									alt='PotPulse'
+									className="w100% h-auto mb-12 xl:mb-16"
+								/>
+								<h4 className="mb-8 xl:mb-16">{item.title}</h4>
+								<p className="mb-12 xl:mb-24">{item.description}</p>
+							</div>
+						));
+					})()}
 				</Container>
 				<Container background="canvas" className="text-center">
 					<div>
