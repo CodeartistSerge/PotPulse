@@ -129,7 +129,7 @@ export default function Landing({ name }:LandingProps) {
 										className="w100% h-auto -mb-24 md:-mb-16 xl:-mb-32"
 									/>
 									<div className="block bg-white w-[60%] h-[0] pb-[60%] rounded-lg ml-[20%] mb-12 shadow-lg relative">
-										<h5 className="text-center absolute w-[80%] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">{item.title}</h5>
+										<h5 className="text-center absolute w-[80%] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 leading-[1.4em] py-4">{item.title}</h5>
 									</div>
 									<p>{item.description}</p>
 								</div>
@@ -162,20 +162,20 @@ export default function Landing({ name }:LandingProps) {
 							},
 							{
 								id: 3,
-								title: 'Give Feedback',
+								title: 'Give Reminders a Feedback',
 								description: 'Get a gentle nudge-tap "dry" or "still moist". PotPulse learns fast evolving its reminders.',
 								image: '/assets/lush.png',
 							},
 						];
 						return data.map((item) => (
-							<div className={`relative *:relative *:z-2 pt-0 ${item.id > 1 ? 'pt-32 md:pt-' + 32 * (item.id - 1) : ''}`} key={uniqueID + (counter++)}>
+							<div className="relative *:relative *:z-2 not-last:pb-32 md:not-last:pb-32 how-it-work-pt-0 md:how-it-work-pt-32" key={uniqueID + (counter++)} style={{['--how-it-works-index' as string]: item.id}}>
 								<div className="[&]:absolute [&]:z-1 text-[18rem] text-accent/20 left-0 -translate-y-65 -translate-x-[7rem] tracking-tighter">0{item.id}</div>
 								<img
 									src={item.image}
 									alt='PotPulse'
 									className="w100% h-auto mb-12 xl:mb-16"
 								/>
-								<h4 className="mb-8 xl:mb-16">{item.title}</h4>
+								<h4 className="mb-8 xl:mb-16 leading-[1.2em] py-4">{item.title}</h4>
 								<p className="mb-12 xl:mb-24">{item.description}</p>
 							</div>
 						));
