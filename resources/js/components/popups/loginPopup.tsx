@@ -7,10 +7,11 @@ import { FormEventHandler } from 'react';
 import InputError from '@/components/input-error';
 import TextLink from '@/components/text-link';
 import Button from '@/components/ui/button';
-import { Checkbox } from '@/components/ui/checkbox';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
+import Checkbox from '@/components/ui/checkbox';
+import Input from '@/components/ui/input';
+import Label from '@/components/ui/label';
 import AuthLayout from '@/layouts/auth-layout';
+import { cn } from '@/lib/utils';
 
 type LoginForm = {
     email: string;
@@ -44,9 +45,9 @@ export default function LoginPopup({ visible, status, canResetPassword }: LoginP
 
 	return (
 		<Popup name="login" visible={ visible } className='max-w-[50rem] md:px-[6rem]'>
-
+			<h4 className="text-center mb-[3rem] sm:mb-[6rem]">Please Log In</h4>
             <form className="flex flex-col gap-6" onSubmit={submit}>
-                <div className="grid gap-6">
+                <div className="grid gap-4 sm:gap-6">
                     <div className="grid gap-2">
                         <Label htmlFor="email">Email address</Label>
                         <Input
@@ -60,7 +61,7 @@ export default function LoginPopup({ visible, status, canResetPassword }: LoginP
                             onChange={(e) => setData('email', e.target.value)}
                             placeholder="email@example.com"
                         />
-                        <InputError message={errors.email} />
+                        <InputError text={errors.email} />
                     </div>
 
                     <div className="grid gap-2">
@@ -82,7 +83,7 @@ export default function LoginPopup({ visible, status, canResetPassword }: LoginP
                             onChange={(e) => setData('password', e.target.value)}
                             placeholder="Password"
                         />
-                        <InputError message={errors.password} />
+                        <InputError text={errors.password} />
                     </div>
 
                     <div className="flex items-center space-x-3">
@@ -96,16 +97,18 @@ export default function LoginPopup({ visible, status, canResetPassword }: LoginP
                         <Label htmlFor="remember">Remember me</Label>
                     </div>
 
-                    <Button type="submit" className="mt-4 w-full" tabIndex={4} disabled={processing}>
-						{processing && <LoaderCircle className="h-4 w-4 animate-spin" />}
+                    <Button type="submit" className={cn(
+						"mt-[3rem] sm:mt-[4rem] block relative",
+					)} tabIndex={4} disabled={processing}>
+						{processing && <LoaderCircle className="h-[1em] w-[1em] animate-spin stroke-white inline-block absolute -ml-[1.3em] top-1/2 -translate-y-1/2" />}
 						Log in
 					</Button>
                 </div>
 
                 <div className="text-center text-sm text-muted-foreground">
                     <small>
-						Don't have an account?{' '}
-						<Link href={route('register')} tabIndex={5}>
+						Don't have an account?
+						<Link href={route('register')} tabIndex={5} className="pl-[0.3em]">
 							Sign up
 						</Link>
 					</small>

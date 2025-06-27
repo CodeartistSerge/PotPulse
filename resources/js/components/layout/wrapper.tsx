@@ -1,3 +1,4 @@
+import { cn } from '@/lib/utils';
 import { type ReactNode } from 'react';
 
 interface wrapperProps {
@@ -5,14 +6,11 @@ interface wrapperProps {
 }
 
 export default function Wrapper({children}:wrapperProps) {
+
 	return (
-		<div className='
-			block
-			overflow-hidden
-			w100%
-			relative
-			bg-canvas
-		'>
+		<div className={cn(
+			"block overflow-hidden w100% relative bg-canvas",
+		)}>
 			{children}
 		</div>
 	)

@@ -3,10 +3,16 @@ import Layout from '@/layouts/main-layout';
 import Container from '@/components/layout/container';
 import Button, { LinkButton } from '@/components/ui/button';
 import { useId } from 'react';
+import { useDispatch } from 'react-redux';
+import { openPopup } from '@/store/popups';
 
 export default function Landing() {
 	const uniqueID = useId();
 	let counter = 0;
+	const dispatch = useDispatch();
+	const handleJoinBetaClick = () => {
+		dispatch(openPopup('login'))
+	}
 	return (
 		<>
 			<Head
@@ -24,7 +30,7 @@ export default function Landing() {
 							<h1>Feel the <span className="text-accent">pulse</span> of every pot</h1>
 							<p>PotPulse learns from your weather and quick soil checks to nudge you just in time - never too early, never too late</p>
 							<div className="flex flex-raw gap-4 mt-12">
-								<Button>Join the Beta</Button>
+								<Button onClick={handleJoinBetaClick}>Join the Beta</Button>
 								<LinkButton mod="transparent" href="/#how-it-works">How it works</LinkButton>
 							</div>
 						</div>

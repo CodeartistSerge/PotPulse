@@ -2,10 +2,10 @@ import { Head, useForm } from '@inertiajs/react';
 import { LoaderCircle } from 'lucide-react';
 import { FormEventHandler } from 'react';
 
-import InputError from '@/components/input-error';
+import InputError from '@/components/legacy-input-error';
 import { Button } from '@/components/ui/legacy-button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
+import { Input } from '@/components/ui/legacy-input';
+import { Label } from '@/components/ui/legacy-label';
 import AuthLayout from '@/layouts/auth-layout';
 
 interface ResetPasswordProps {

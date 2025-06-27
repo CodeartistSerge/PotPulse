@@ -167,6 +167,9 @@
     body {
         @apply bg-background text-foreground;
 		font-family:'Raleway',sans-serif;
+		&.popupIsOpen {
+			overflow: hidden !important;
+		}
     }
 
 	@keyframes short-ping {
@@ -245,6 +248,13 @@
 				bottom: 0;
 				@apply w-[2rem] xl:w-[4rem];
 			}
+			&.text-center {
+				&:before,
+				&:after {
+					left: 50%;
+					transform: translate(-50%, 0);
+				}
+			}
 		}
 		h5 {
 			@apply font-medium text-[1.4384rem] xl:text-[2.4576rem] py-4 relative;
@@ -303,6 +313,14 @@
 		}
 		hr {
 
+		}
+		form {
+			input {
+				@apply text-[1.65rem] xl:text-[2rem] leading-[1.6em] h-[5rem] -mx-[0.7rem] w-[calc(100%+1.4rem)];
+			}
+			label {
+				@apply text-[1.35rem] xl:text-[1.65rem] leading-[1.6em];
+			}
 		}
 	}
 }

@@ -15,13 +15,14 @@ const buttonVariants = cva([
 	'text-[1.4rem]',
 	'xl:text-[2rem]',
 	'shadow-md',
-	'cursor-pointer',
-	'hover:brightness-95',
+	'not-disabled:cursor-pointer',
+	'hover:not-disabled:brightness-95',
 	'transition-all',
 	'duration-300',
 	'font-["Poppins",sans-serif]',
 	'font-semibold',
-	'no-underline!'
+	'no-underline!',
+	'disabled:opacity-50'
 ], {
 	variants: {
 		size: {
@@ -46,21 +47,21 @@ const buttonVariants = cva([
 				'border',
 				'border-accent',
 				'text-accent',
-				'hover:bg-accent/10',
+				'hover:not-disabled:bg-accent/10',
 			],
 			outline: [
 				'bg-transparent',
 				'border',
 				'border-text',
 				'text-text',
-				'hover:bg-accent/10',
+				'hover:not-disabled:bg-accent/10',
 			],
 			white: [
 				'bg-white',
 				'border',
 				'border-accent',
 				'text-accent',
-				'hover:bg-white/90',
+				'hover:not-disabled:bg-white/90',
 			],
 			highlight: [
 				'bg-highlight',

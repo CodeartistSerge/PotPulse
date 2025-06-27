@@ -7,7 +7,6 @@ import { useDispatch } from 'react-redux';
 export default function Header() {
 	const dispatch = useDispatch();
 	const handleLogin = () => {
-		console.log('footer handleLogin func');
 		dispatch(openPopup('login'))
 	}
 	return (
