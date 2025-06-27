@@ -2,9 +2,9 @@ import { type ReactNode } from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { twMerge } from 'tailwind-merge'
 import Button from '@/components/ui/button';
-import { XMarkIcon } from '@heroicons/react/24/solid'
 import { useDispatch } from 'react-redux';
 import { closePopup } from '@/store/popups';
+import { X } from 'lucide-react';
 
 const popupVariants = cva([
 	'fixed',
@@ -50,11 +50,12 @@ export default function Popup({ children, visible=true, direction, background, c
 	return (
 		visible &&
 		<section className={twMerge(popupVariants({ direction, background }), className)}>
+
 			<div className="relative bg-white rounded-[2rem] max-w-[140rem] max-h-[calc(100vh-18rem)] py-[8rem] px-[12rem] w100% flex-grow-1 overflow-y-auto">
 				<Button
 					size="icon"
 					mod="highlight"
-					text={<XMarkIcon className='fill-white size-[2rem]'/>}
+					text={ <X className='stroke-white size-[2rem]' /> }
 					className="absolute top-[4rem] right-[4rem] z-10 translate-x-[50%] -translate-y-[50%] shadow-none text-[2rem]!"
 					onClick={handleClose}
 				/>
