@@ -2,6 +2,7 @@ import { type ReactNode } from 'react';
 import { Link } from '@inertiajs/react';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { twMerge } from 'tailwind-merge'
+import type { InertiaLinkProps } from '@inertiajs/react';
 
 const buttonVariants = cva([
 	'bg-accent',
@@ -20,6 +21,7 @@ const buttonVariants = cva([
 	'duration-300',
 	'font-["Poppins",sans-serif]',
 	'font-semibold',
+	'no-underline!'
 ], {
 	variants: {
 		size: {
@@ -86,21 +88,20 @@ const buttonVariants = cva([
 });
 
 interface buttonProps {
-	text: string | ReactNode;
-	className?: string;
-	href?: string;
+	onClick?: React.MouseEventHandler<HTMLButtonElement> | React.MouseEventHandler<HTMLLinkElement>;
+	children?: ReactNode;
+	classNamme?: string;
 	size?: VariantProps<typeof buttonVariants>['size'];
 	purpose?: VariantProps<typeof buttonVariants>['purpose'];
 	mod?: VariantProps<typeof buttonVariants>['mod'];
-	onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-export default function Button({ onClick, text, size, purpose, mod, href, className = '' }: buttonProps) {
-	if (href) {
-		return <Link href={href} className={twMerge(buttonVariants({ size, purpose, mod }), className)}>{text}</Link>
-	} else {
-		return (
-			<button className={twMerge(buttonVariants({ size, purpose, mod }), className)} onClick={onClick}>{text}</button>
-		)
-	}
+export function LinkButton({ onClick, children, size, purpose, mod, className = '', ...props }: InertiaLinkProps & buttonProps) {
+	return <Link {...props} className={twMerge(buttonVariants({ size, purpose, mod }), className)}>{children}</Link>
+}
+
+export default function Button({ onClick, children, size, purpose, mod, className = '', ...props }: React.ComponentProps<"button"> & buttonProps) {
+	return (
+		<button {...props} className={twMerge(buttonVariants({ size, purpose, mod }), className)} onClick={onClick}>{children}</button>
+	)
 }

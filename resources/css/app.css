@@ -201,7 +201,7 @@
 			@apply text-[1.65rem] xl:text-[2rem] text-text
 		}
 		h1, h2 {
-			@apply font-bold text-[4rem] xl:text-[6rem] leading-tight relative py-6 xl:py-8;
+			@apply font-bold text-[4rem] xl:text-[6rem] leading-[1em] relative py-6 xl:py-8;
 			@apply before:bg-text after:bg-text;
 			&:before,
 			&:after {
@@ -275,13 +275,13 @@
 			}
 		}
 		small {
-			@apply text-[1.25rem] xl:text-[1.6rem];
+			@apply text-[1.25rem] xl:text-[1.6rem] *:text-[length:inherit]!;
 			&:not(:last-child) {
 				@apply mb-[1.25rem] xl:mb-[1.6rem];
 			}
 		}
 		a {
-
+			@apply underline text-highlight brightness-90
 		}
 		ul {
 

@@ -17,7 +17,7 @@ export default function Header() {
 			before:shadow-lg
 		">
 			<div className='w-[3rem] md:w-[5rem] flex-grow-0'>
-				<Link href='/' className="flex flex-row items-center gap-2 md:gap-4">
+				<Link href='/' className="flex flex-row items-center gap-2 md:gap-4 no-underline">
 					<img
 						src='/assets/logo/logo-w.svg'
 						alt='PotPulse'
@@ -27,7 +27,7 @@ export default function Header() {
 				</Link>
 			</div>
 			<div className='flex-grow-1 flex justify-end items-center'>
-				<Button text="Log In" mod="white" purpose="header" onClick={handleLogin} />
+				<Button mod="white" purpose="header" onClick={handleLogin} >Log In</Button>
 			</div>
 		</Container>
 	)

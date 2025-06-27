@@ -1,7 +1,7 @@
 import { Head } from '@inertiajs/react'
 import Layout from '@/layouts/main-layout';
 import Container from '@/components/layout/container';
-import Button from '@/components/ui/button';
+import Button, { LinkButton } from '@/components/ui/button';
 import { useId } from 'react';
 
 export default function Landing() {
@@ -24,8 +24,8 @@ export default function Landing() {
 							<h1>Feel the <span className="text-accent">pulse</span> of every pot</h1>
 							<p>PotPulse learns from your weather and quick soil checks to nudge you just in time - never too early, never too late</p>
 							<div className="flex flex-raw gap-4 mt-12">
-								<Button text="Join the Beta" />
-								<Button text="How it works" mod="transparent" href="#how-it-works" />
+								<Button>Join the Beta</Button>
+								<LinkButton mod="transparent" href="/#how-it-works">How it works</LinkButton>
 							</div>
 						</div>
 						<div className='relative -order-1 md:order-2'>
@@ -126,7 +126,7 @@ export default function Landing() {
 										className="w100% h-auto -mb-24 md:-mb-16 xl:-mb-32"
 									/>
 									<div className="block bg-white w-[60%] h-[0] pb-[60%] rounded-lg ml-[20%] mb-12 shadow-lg relative">
-										<h5 className="text-center absolute w-[80%] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 leading-[1.4em] py-4">{item.title}</h5>
+										<h5 className="text-center absolute w-[80%] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 leading-[1.2em] py-4">{item.title}</h5>
 									</div>
 									<p>{item.description}</p>
 								</div>
@@ -185,7 +185,7 @@ export default function Landing() {
 							<p>PotPulse evolves its reminders as your plants grow.</p>
 							<p>Join a handful of plant lovers shaping the future of easy care.</p>
 						</div>
-						<Button text="Request Invite" />
+						<Button>Request Invite</Button>
 					</div>
 				</Container>
 			</Layout>

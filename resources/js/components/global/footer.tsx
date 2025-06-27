@@ -1,5 +1,5 @@
 import Container from '@/components/layout/container';
-import Popup from '@/components/popups/popup';
+import LoginPopup from '@/components/popups/loginPopup';
 import Button from '@/components/ui/button';
 import { RootState } from '@/store/store';
 import { useSelector } from 'react-redux';
@@ -17,9 +17,7 @@ export default function Footer() {
 			">
 				<small className="text-white">© 2025 PotPulse • Made with love in New Zealand</small>
 			</Container>
-			<Popup visible={ loginPopupState.isOpen }>
-				<h1>Hi there!</h1>
-			</Popup>
+			<LoginPopup visible={ loginPopupState.isOpen } canResetPassword={false} />
 		</>
 	)
 }

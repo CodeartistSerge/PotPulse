@@ -8,12 +8,12 @@ const containerVariants = cva([
 	'w-100%',
 	'max-w-[140rem]',
 	'mx-auto',
-	'xl:py-32',
-	'xl:px-64',
-	'md:py-16',
-	'md:px-32',
 	'py-16',
 	'px-8',
+	'md:py-16',
+	'md:px-32',
+	'xl:py-32',
+	'xl:px-64',
 	'*:relative',
 	'*:z-3',
 	'*:flex-nowrap',
@@ -80,15 +80,25 @@ export default function Container({ children, direction, background, id, classNa
 		<section className={twMerge(containerVariants({ direction, background }), className)} id={id}>
 			{children}
 			{background === 'canvas' && (
-				<div className="[&]:static [&]:z-2">
+				<div className="
+					[&]:absolute
+					[&]:z-2
+					w-[100vw]
+					h-[100%]
+					top-0
+					left-1/2
+					-translate-x-1/2
+					overflow-hidden
+				">
 					<div className="
 						[&]:absolute
 						[&]:z-2
 						bottom-0
 						left-0
+						xl:left-[50vw]
 						-translate-x-[50%]
+						xl:-translate-x-[90rem]
 						translate-y-[46%]
-						xl:-translate-x-[100%]
 						xl:translate-y-[46%]
 						rotate-30
 						scale-y-90
@@ -109,9 +119,10 @@ export default function Container({ children, direction, background, id, classNa
 						[&]:z-2
 						top-0
 						right-0
+						xl:right-[50vw]
 						translate-x-[70%]
 						-translate-y-[46%]
-						xl:translate-x-[80%]
+						xl:translate-x-[90rem]
 						xl:-translate-y-[46%]
 						rotate-30
 						-scale-y-90

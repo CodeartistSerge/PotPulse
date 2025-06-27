@@ -8,9 +8,9 @@ export default function Wrapper({children}:wrapperProps) {
 	return (
 		<div className='
 			block
+			overflow-hidden
 			w100%
 			relative
-			overflow-hidden
 			bg-canvas
 		'>
 			{children}

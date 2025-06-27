@@ -3,7 +3,7 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { twMerge } from 'tailwind-merge'
 import Button from '@/components/ui/button';
 import { useDispatch } from 'react-redux';
-import { closePopup } from '@/store/popups';
+import { closePopup, popupsState } from '@/store/popups';
 import { X } from 'lucide-react';
 
 const popupVariants = cva([
@@ -34,6 +34,7 @@ const popupVariants = cva([
 });
 
 interface popupProps {
+	name: keyof popupsState,
 	visible: boolean,
 	children: ReactNode;
 	className?: string;
@@ -41,24 +42,23 @@ interface popupProps {
 	background?: VariantProps<typeof popupVariants>['background'];
 }
 
-export default function Popup({ children, visible=true, direction, background, className = '' }: popupProps) {
+export default function Popup({ name, children, visible=true, direction, background, className = '' }: popupProps) {
 	const dispatch = useDispatch();
 	const handleClose = () => {
 		console.log('popup handleClose func');
-		dispatch(closePopup('login'));
+		dispatch(closePopup(name));
 	}
 	return (
 		visible &&
-		<section className={twMerge(popupVariants({ direction, background }), className)}>
+		<section className={popupVariants({ direction, background })}>
 
-			<div className="relative bg-white rounded-[2rem] max-w-[140rem] max-h-[calc(100vh-18rem)] py-[8rem] px-[12rem] w100% flex-grow-1 overflow-y-auto">
+			<div className={twMerge("relative bg-white rounded-[2rem] max-w-[140rem] max-h-[calc(100vh-18rem)] py-[8rem] px-[6rem] md:px-[12rem] mx-[3rem] w100% flex-grow-1 overflow-y-auto", className)}>
 				<Button
 					size="icon"
 					mod="highlight"
-					text={ <X className='stroke-white size-[2rem]' /> }
 					className="absolute top-[4rem] right-[4rem] z-10 translate-x-[50%] -translate-y-[50%] shadow-none text-[2rem]!"
 					onClick={handleClose}
-				/>
+				><X className='stroke-white size-[2rem]' /></Button>
 				{children}
 			</div>
 		</section>
