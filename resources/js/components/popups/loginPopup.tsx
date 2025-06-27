@@ -1,17 +1,17 @@
 import Popup from '@/components/popups/popup';
 
-import { Head, Link, useForm } from '@inertiajs/react';
+import { Link, useForm } from '@inertiajs/react';
 import { LoaderCircle } from 'lucide-react';
 import { FormEventHandler } from 'react';
-/* are? */
 import InputError from '@/components/input-error';
 import TextLink from '@/components/text-link';
 import Button from '@/components/ui/button';
 import Checkbox from '@/components/ui/checkbox';
 import Input from '@/components/ui/input';
 import Label from '@/components/ui/label';
-import AuthLayout from '@/layouts/auth-layout';
 import { cn } from '@/lib/utils';
+import { useDispatch } from 'react-redux';
+import { closePopup, openPopup } from '@/store/popups';
 
 type LoginForm = {
     email: string;
@@ -24,24 +24,30 @@ interface LoginProps {
     canResetPassword: boolean;
     visible: boolean;
 }
-/* end are */
 
 export default function LoginPopup({ visible, status, canResetPassword }: LoginProps) {
-	/* more are? */
 	const { data, setData, post, processing, errors, reset } = useForm<Required<LoginForm>>({
 		email: '',
 		password: '',
 		remember: false,
 	});
 
+	const dispatch = useDispatch();
+
 	const submit: FormEventHandler = (e) => {
 		e.preventDefault();
 		post(route('login'), {
-			onFinish: () => reset('password'),
+			onFinish: () => {
+				dispatch(closePopup('login'));
+				reset('password');
+			},
 		});
 	};
 
-	/* end: more are */
+	const handleSignUpClick = () => {
+		dispatch(openPopup('register'));
+		dispatch(closePopup('login'));
+	}
 
 	return (
 		<Popup name="login" visible={ visible } className='max-w-[50rem] md:px-[6rem]'>
@@ -108,7 +114,7 @@ export default function LoginPopup({ visible, status, canResetPassword }: LoginP
                 <div className="text-center text-sm text-muted-foreground">
                     <small>
 						Don't have an account?
-						<Link href={route('register')} tabIndex={5} className="pl-[0.3em]">
+						<Link href="#" onClick={handleSignUpClick} tabIndex={5} className="pl-[0.3em]">
 							Sign up
 						</Link>
 					</small>

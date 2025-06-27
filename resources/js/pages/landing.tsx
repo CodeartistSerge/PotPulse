@@ -191,7 +191,7 @@ export default function Landing() {
 							<p>PotPulse evolves its reminders as your plants grow.</p>
 							<p>Join a handful of plant lovers shaping the future of easy care.</p>
 						</div>
-						<Button>Request Invite</Button>
+						<Button onClick={handleJoinBetaClick}>Request Invite</Button>
 					</div>
 				</Container>
 			</Layout>

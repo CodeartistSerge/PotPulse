@@ -22,7 +22,8 @@ const buttonVariants = cva([
 	'font-["Poppins",sans-serif]',
 	'font-semibold',
 	'no-underline!',
-	'disabled:opacity-50'
+	'disabled:opacity-50',
+	'brightness-100'
 ], {
 	variants: {
 		size: {
@@ -97,7 +98,7 @@ interface buttonProps {
 	mod?: VariantProps<typeof buttonVariants>['mod'];
 }
 
-export function LinkButton({ onClick, children, size, purpose, mod, className = '', ...props }: InertiaLinkProps & buttonProps) {
+export function LinkButton({ children, size, purpose, mod, className = '', ...props }: InertiaLinkProps & buttonProps) {
 	return <Link {...props} className={twMerge(buttonVariants({ size, purpose, mod }), className)}>{children}</Link>
 }
 

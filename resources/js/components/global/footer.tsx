@@ -1,11 +1,12 @@
 import Container from '@/components/layout/container';
 import LoginPopup from '@/components/popups/loginPopup';
-import Button from '@/components/ui/button';
 import { RootState } from '@/store/store';
 import { useSelector } from 'react-redux';
+import RegisterPopup from '../popups/registerPopup';
 
 export default function Footer() {
 	const loginPopupState = useSelector((state:RootState) => state.popups.login );
+	const registerPopupState = useSelector((state:RootState) => state.popups.register );
 	return (
 		<>
 			<Container background="accent" className="
@@ -18,6 +19,7 @@ export default function Footer() {
 				<small className="text-white">© 2025 PotPulse • Made with love in New Zealand</small>
 			</Container>
 			<LoginPopup visible={ loginPopupState.isOpen } canResetPassword={false} />
+			<RegisterPopup visible={ registerPopupState.isOpen } />
 		</>
 	)
 }

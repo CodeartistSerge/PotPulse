@@ -56,12 +56,15 @@ export default function Popup({ name, children, visible=true, direction, backgro
 				"max-w-[140rem] max-h-[calc(100vh-18rem)] w100%",
 				"py-[6rem] sm:py-[8rem] px-[6rem] md:px-[12rem] mx-[3rem]",
 				"bg-white rounded-[2rem]",
+				"*:relative *:z-3",
 				className
 			)}>
 				<Button
 					size="icon"
 					mod="highlight"
-					className="absolute top-[4rem] right-[4rem] z-10 translate-x-[50%] -translate-y-[50%] shadow-none text-[2rem]!"
+					className={cn(
+						"[&]:absolute top-[4rem] right-[4rem] z-10 translate-x-[50%] -translate-y-[50%] shadow-none text-[2rem]!"
+					)}
 					onClick={handleClose}
 				><X className='stroke-white size-[2rem]' /></Button>
 				{children}
