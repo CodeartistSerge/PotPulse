@@ -4,18 +4,15 @@ import Container from '@/components/layout/container';
 import Button from '@/components/ui/button';
 import { useId } from 'react';
 
-interface LandingProps {
-	name: string;
-}
-
-export default function Landing({ name }:LandingProps) {
+export default function Landing() {
 	const uniqueID = useId();
 	let counter = 0;
 	return (
 		<>
 			<Head
-				title={`Welcome ${name}`}
+				title={`Homepage`}
 			>
+				<link rel="icon" type="image/svg+xml" href="/assets/logo/logo.svg" />
 				<link rel="preconnect" href="https://fonts.googleapis.com"/>
 				<link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
 				<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
@@ -105,19 +102,19 @@ export default function Landing({ name }:LandingProps) {
 								{
 									id: 1,
 									title: 'Smart Reminders',
-									description: 'Weather-aware nudges tuned by your quick "dry or not" check. Weather-aware nudges tuned by your quick "dry or not" check.',
+									description: 'Smart, weather-aware nudges automatically adjust themselves, guided by your quick "dry-or-not" fingertip check, ensuring perfectly timed watering reminders every time.',
 									image: '/assets/water-plant.png',
 								},
 								{
 									id: 2,
 									title: 'Zero Over-Watering',
-									description: 'Forget root-rot: PotPulse learns your plant\'s rhythm and shifts alerts automatically. Forget root-rot: PotPulse learns your plant\'s rhythm and shifts alerts automatically.',
+									description: 'Forget root-rot: PotPulse understands how your plant behaves in its environment, learning its natural rhythm over time and intelligently shifting reminders to avoid unnecessary or premature watering.',
 									image: '/assets/watering.png',
 								},
 								{
 									id: 3,
 									title: 'One-Tap Updates',
-									description: 'Mark whole shelves at once. Bye-bye, notification clutter. Mark whole shelves at once. Bye-bye, notification clutter.',
+									description: 'Mark entire plant groups or shelves in a single tap - no more tapping through dozens of reminders. Say goodbye to notification clutter and hello to calm, efficient plant care.',
 									image: '/assets/bedroom-plants.png',
 								},
 							];

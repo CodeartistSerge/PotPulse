@@ -3,6 +3,8 @@ import createServer from '@inertiajs/react/server';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import ReactDOMServer from 'react-dom/server';
 import { type RouteName, route } from 'ziggy-js';
+import { store } from './store/store';
+import { Provider } from 'react-redux';
 
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 
@@ -24,7 +26,7 @@ createServer((page) =>
                 });
             /* eslint-enable */
 
-            return <App {...props} />;
+            return <Provider store={store}><App {...props} /></Provider>;
         },
     }),
 );

@@ -1,3 +1,4 @@
+import { type ReactNode } from 'react';
 import { Link } from '@inertiajs/react';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { twMerge } from 'tailwind-merge'
@@ -25,7 +26,16 @@ const buttonVariants = cva([
 			regular: [],
 			large: [],
 			small: [],
-			icon: [],
+			icon: [
+				'py-[0.5em]!',
+				'px-[0.5em]!',
+				'w-[2em]!',
+				'h-[2em]!',
+				'leading-[1em]!',
+				'flex',
+				'items-center',
+				'justify-center',
+			],
 		},
 		mod: {
 			regular: [],
@@ -76,20 +86,21 @@ const buttonVariants = cva([
 });
 
 interface buttonProps {
-	text: string;
+	text: string | ReactNode;
 	className?: string;
 	href?: string;
 	size?: VariantProps<typeof buttonVariants>['size'];
 	purpose?: VariantProps<typeof buttonVariants>['purpose'];
 	mod?: VariantProps<typeof buttonVariants>['mod'];
+	onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-export default function Button({ text, size, purpose, mod, href, className = '' }: buttonProps) {
+export default function Button({ onClick, text, size, purpose, mod, href, className = '' }: buttonProps) {
 	if (href) {
 		return <Link href={href} className={twMerge(buttonVariants({ size, purpose, mod }), className)}>{text}</Link>
 	} else {
 		return (
-			<button className={twMerge(buttonVariants({ size, purpose, mod }), className)} >{text}</button>
+			<button className={twMerge(buttonVariants({ size, purpose, mod }), className)} onClick={onClick}>{text}</button>
 		)
 	}
 }

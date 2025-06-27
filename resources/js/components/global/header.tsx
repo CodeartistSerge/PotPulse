@@ -1,8 +1,15 @@
 import Container from '@/components/layout/container';
 import Button from '@/components/ui/button';
 import { Link } from '@inertiajs/react';
+import { openPopup } from '@/store/popups';
+import { useDispatch } from 'react-redux';
 
 export default function Header() {
+	const dispatch = useDispatch();
+	const handleLogin = () => {
+		console.log('footer handleLogin func');
+		dispatch(openPopup('login'))
+	}
 	return (
 		<Container direction='alwaysrow' background="accent" className="
 			z-10
@@ -20,7 +27,7 @@ export default function Header() {
 				</Link>
 			</div>
 			<div className='flex-grow-1 flex justify-end items-center'>
-				<Button text="Log In" mod="white" purpose="header" />
+				<Button text="Log In" mod="white" purpose="header" onClick={handleLogin} />
 			</div>
 		</Container>
 	)
