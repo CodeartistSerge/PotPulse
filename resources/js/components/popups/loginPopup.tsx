@@ -18,6 +18,7 @@ type LoginForm = {
     email: string;
     password: string;
     remember: boolean;
+    _token: string;
 };
 
 interface LoginProps {
@@ -27,10 +28,13 @@ interface LoginProps {
 }
 
 export default function LoginPopup({ visible, status, canResetPassword }: LoginProps) {
+	const { csrf } = usePage<SharedData>().props;
+
 	const { data, setData, post, processing, errors, reset } = useForm<Required<LoginForm>>({
 		email: '',
 		password: '',
 		remember: false,
+		_token: csrf,
 	});
 
 	const dispatch = useDispatch();
@@ -50,8 +54,6 @@ export default function LoginPopup({ visible, status, canResetPassword }: LoginP
 		dispatch(closePopup('login'));
 	}
 
-	const { csrf } = usePage<SharedData>().props;
-
 	return (
 		<Popup name="login" visible={ visible } className='max-w-[50rem] md:px-[6rem]'>
 			<h4 className="text-center mb-[3rem] sm:mb-[6rem]">Please Log In</h4>
@@ -59,12 +61,6 @@ export default function LoginPopup({ visible, status, canResetPassword }: LoginP
                 <div className="grid gap-4 sm:gap-6">
                     <div className="grid gap-2">
                         <Label htmlFor="email">Email address</Label>
-                        <Input
-                            id="_token"
-                            type="hidden"
-                            required
-                            value={csrf}
-                        />
                         <Input
                             id="email"
                             type="email"
