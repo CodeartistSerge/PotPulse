@@ -16,7 +16,7 @@ export default function Footer() {
 				before:shadow-lg
 				before:-scale-y-100
 			">
-				<small className="text-white">© 2025 PotPulse • Made with love in New Zealand</small>
+				<small className="text-white">© 2025 PlanToWater • Made with love in New Zealand</small>
 			</Container>
 			<LoginPopup visible={ loginPopupState.isOpen } canResetPassword={false} />
 			<RegisterPopup visible={ registerPopupState.isOpen } />

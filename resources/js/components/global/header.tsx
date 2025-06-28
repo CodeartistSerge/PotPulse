@@ -22,7 +22,7 @@ export default function Header() {
 				<Link href='/' className="flex flex-row items-center gap-2 md:gap-4 no-underline">
 					<img
 						src='/assets/logo/logo-w.svg'
-						alt='PotPulse'
+						alt='PlanToWater'
 						className='w-[3rem] md:w-[5rem] w-auto h-[5rem]'
 					/>
 					<span className="text-white font-semibold text-[2rem]/20 md:text-[3rem]/20 tracking-tighter font-['Poppins',sans-serif]">PlanToWater</span>
