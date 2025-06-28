@@ -213,13 +213,24 @@
 				position: absolute;
 				top: 0;
 				left: 0;
-				@apply w-[12rem] h-[4px] xl:w-[18rem] xl:h-[6px];
+				width: 12rem;
+				height: 4px;
 			}
 			&::after {
 				width: 9rem;
 				top:auto;
 				bottom: 0;
-				@apply w-[6rem] xl:w-[9rem];
+				@apply w-[6rem];
+			}
+			@media (width >= 80rem) {
+				&:before,
+				&:after {
+					width: 18rem;
+					height: 6px;
+				}
+				&:after {
+					width: 9rem;
+				}
 			}
 		}
 		h2 {
@@ -240,13 +251,23 @@
 				height: 3px;
 				top: 0;
 				left: 0;
-				@apply w-[4rem] h-[2px] xl:w-[8rem] xl:h-[3px];
+				@apply w-[4rem] h-[2px];
 			}
 			&::after {
 				width: 4rem;
 				top:auto;
 				bottom: 0;
-				@apply w-[2rem] xl:w-[4rem];
+				@apply w-[2rem];
+			}
+			@media (width >= 80rem) {
+				&:before,
+				&:after {
+					width: 8rem;
+					height: 3px;
+				}
+				&:after {
+					width: 4rem;
+				}
 			}
 			&.text-center {
 				&:before,
@@ -267,12 +288,22 @@
 				top: 0;
 				left: 50%;
 				transform: translate(-50%, 0);
-				@apply w-[4rem] h-[2px] xl:w-[6rem] xl:h-[3px];
+				@apply w-[4rem] h-[2px];
 			}
 			&::after {
 				top:auto;
 				bottom: 0;
-				@apply w-[2rem] xl:w-[3rem];
+				@apply w-[2rem];
+			}
+			@media (width >= 80rem) {
+				&:before,
+				&:after {
+					width: 8rem;
+					height: 3px;
+				}
+				&:after {
+					width: 3rem;
+				}
 			}
 		}
 		h6 {
