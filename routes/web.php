@@ -2,8 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use Illuminate\Http\Request;
 
-Route::get('/', function () {
+Route::get('/', function (Request $request) {
     return Inertia::render('landing');
 })->name('home');
 

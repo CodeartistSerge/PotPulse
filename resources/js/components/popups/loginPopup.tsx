@@ -1,6 +1,6 @@
 import Popup from '@/components/popups/popup';
 
-import { Link, useForm } from '@inertiajs/react';
+import { Link, useForm, usePage } from '@inertiajs/react';
 import { LoaderCircle } from 'lucide-react';
 import { FormEventHandler } from 'react';
 import InputError from '@/components/input-error';
@@ -12,6 +12,7 @@ import Label from '@/components/ui/label';
 import { cn } from '@/lib/utils';
 import { useDispatch } from 'react-redux';
 import { closePopup, openPopup } from '@/store/popups';
+import { SharedData } from '@/types';
 
 type LoginForm = {
     email: string;
@@ -49,6 +50,8 @@ export default function LoginPopup({ visible, status, canResetPassword }: LoginP
 		dispatch(closePopup('login'));
 	}
 
+	const { csrf } = usePage<SharedData>().props;
+
 	return (
 		<Popup name="login" visible={ visible } className='max-w-[50rem] md:px-[6rem]'>
 			<h4 className="text-center mb-[3rem] sm:mb-[6rem]">Please Log In</h4>
@@ -56,6 +59,12 @@ export default function LoginPopup({ visible, status, canResetPassword }: LoginP
                 <div className="grid gap-4 sm:gap-6">
                     <div className="grid gap-2">
                         <Label htmlFor="email">Email address</Label>
+                        <Input
+                            id="_token"
+                            type="hidden"
+                            required
+                            value={csrf}
+                        />
                         <Input
                             id="email"
                             type="email"

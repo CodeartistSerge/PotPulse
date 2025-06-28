@@ -8,7 +8,6 @@ import { SharedData } from '@/types';
 
 export default function Header() {
 	const { auth } = usePage<SharedData>().props;
-	console.log(auth, typeof auth);
 	const dispatch = useDispatch();
 	const handleLogin = () => {
 		dispatch(openPopup('login'))
