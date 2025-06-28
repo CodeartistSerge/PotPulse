@@ -27,8 +27,8 @@ export default function Landing() {
 				<Container background="canvas">
 					<div className="grid grid-cols-1 md:grid-cols-2 gap-16 xl:gap-32 z-2 relative items-center">
 						<div>
-							<h1>Feel the <span className="text-accent">pulse</span> of every pot</h1>
-							<p>PotPulse learns from your weather and quick soil checks to nudge you just in time - never too early, never too late</p>
+							<h1>Let your <span className="text-accent">plants</span> set the pace</h1>
+							<p>Set it once with your plant and pot size - PlanToWater handles the rest. It watches the weather and listens to your feedback to gently adjust the rhythm. No more overthinking.</p>
 							<div className="flex flex-raw gap-4 mt-12">
 								<Button onClick={handleJoinBetaClick}>Join the Beta</Button>
 								<LinkButton mod="transparent" href="/#how-it-works">How it works</LinkButton>
@@ -57,7 +57,7 @@ export default function Landing() {
 							">
 								<img
 									src='/assets/landing-hero.png'
-									alt='PotPulse'
+									alt='PlanToWater'
 									className="
 										w-100%
 										h-auto
@@ -66,7 +66,7 @@ export default function Landing() {
 								/>
 								<img
 									src='/assets/logo/logo-w.svg'
-									alt='PotPulse'
+									alt='PlanToWater'
 									className="animate-[short-ping_1s_ease-in-out_infinite]
 										w-[12rem]
 										md:w-[17rem]
@@ -83,7 +83,7 @@ export default function Landing() {
 								/>
 								<img
 									src='/assets/logo/logo-w.svg'
-									alt='PotPulse'
+									alt='PlanToWater'
 									className="
 										w-[12rem]
 										md:w-[17rem]
@@ -114,7 +114,7 @@ export default function Landing() {
 								{
 									id: 2,
 									title: 'Zero Over-Watering',
-									description: 'Forget root-rot: PotPulse understands how your plant behaves in its environment, learning its natural rhythm over time and intelligently shifting reminders to avoid unnecessary or premature watering.',
+									description: 'Forget root-rot: PlanToWater understands how your plant behaves in its environment, learning its natural rhythm over time and intelligently shifting reminders to avoid unnecessary or premature watering.',
 									image: '/assets/watering.png',
 								},
 								{
@@ -128,7 +128,7 @@ export default function Landing() {
 								<div className="flex flex-col align-center justify-center" key={item.id}>
 									<img
 										src={item.image}
-										alt='PotPulse'
+										alt='PlanToWater'
 										className="w100% h-auto -mb-24 md:-mb-16 xl:-mb-32"
 									/>
 									<div className="block bg-white w-[60%] h-[0] pb-[60%] rounded-lg ml-[20%] mb-12 shadow-lg relative">
@@ -145,7 +145,7 @@ export default function Landing() {
 						<h2>How It Works</h2>
 					</div>
 					<div className="w-[100%] md:w-[30%] flex-grow-0">
-						<p>PotPulse gently learns your plant's watering rhythm through simple feedback and weather awareness. No complicated sensors, no stress.</p>
+						<p>PlanToWater gently learns your plant's watering rhythm through simple feedback and weather awareness. No complicated sensors, no stress.</p>
 					</div>
 				</Container>
 				<Container background="white" className="gap-[9.7vw] xl:gap-64 pt-60" direction='row'>
@@ -160,13 +160,13 @@ export default function Landing() {
 							{
 								id: 2,
 								title: 'Let Weather Sync',
-								description: 'PotPulse checks humidity and heat daily, adapting to your local forecast.',
+								description: 'PlanToWater checks humidity and heat daily, adapting to your local forecast.',
 								image: '/assets/weather-1.png',
 							},
 							{
 								id: 3,
 								title: 'Give Reminders a Feedback',
-								description: 'Get a gentle nudge-tap "dry" or "still moist". PotPulse learns fast evolving its reminders.',
+								description: 'Get a gentle nudge-tap "dry" or "still moist". PlanToWater learns fast evolving its reminders.',
 								image: '/assets/lush.png',
 							},
 						];
@@ -175,7 +175,7 @@ export default function Landing() {
 								<div className="[&]:absolute [&]:z-1 text-[18rem] text-accent/20 left-0 -translate-y-65 -translate-x-[7rem] tracking-tighter">0{item.id}</div>
 								<img
 									src={item.image}
-									alt='PotPulse'
+									alt='PlanToWater'
 									className="w100% h-auto mb-12 xl:mb-16"
 								/>
 								<h4 className="mb-8 xl:mb-16 leading-[1.2em] py-4">{item.title}</h4>
@@ -188,7 +188,7 @@ export default function Landing() {
 					<div>
 						<h3>Enjoy the Rhythm</h3>
 						<div className="mb-12">
-							<p>PotPulse evolves its reminders as your plants grow.</p>
+							<p>PlanToWater evolves its reminders as your plants grow.</p>
 							<p>Join a handful of plant lovers shaping the future of easy care.</p>
 						</div>
 						<Button onClick={handleJoinBetaClick}>Request Invite</Button>

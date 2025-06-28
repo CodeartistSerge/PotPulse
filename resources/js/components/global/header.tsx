@@ -25,7 +25,7 @@ export default function Header() {
 						alt='PotPulse'
 						className='w-[3rem] md:w-[5rem] w-auto h-[5rem]'
 					/>
-					<span className="text-white font-semibold text-[2rem]/20 md:text-[3rem]/20 tracking-tighter font-['Poppins',sans-serif]">PotPulse</span>
+					<span className="text-white font-semibold text-[2rem]/20 md:text-[3rem]/20 tracking-tighter font-['Poppins',sans-serif]">PlanToWater</span>
 				</Link>
 			</div>
 			<div className='flex-grow-1 flex justify-end items-center'>

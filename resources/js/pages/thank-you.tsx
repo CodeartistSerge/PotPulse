@@ -40,7 +40,7 @@ export default function Landing() {
 							">
 								<img
 									src='/assets/landing-hero.png'
-									alt='PotPulse'
+									alt='PlanToWater'
 									className="
 										w-100%
 										h-auto
@@ -49,7 +49,7 @@ export default function Landing() {
 								/>
 								<img
 									src='/assets/logo/logo-w.svg'
-									alt='PotPulse'
+									alt='PlanToWater'
 									className="animate-[short-ping_1s_ease-in-out_infinite]
 										w-[12rem]
 										md:w-[17rem]
@@ -66,7 +66,7 @@ export default function Landing() {
 								/>
 								<img
 									src='/assets/logo/logo-w.svg'
-									alt='PotPulse'
+									alt='PlanToWater'
 									className="
 										w-[12rem]
 										md:w-[17rem]
