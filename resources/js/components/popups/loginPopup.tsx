@@ -18,7 +18,6 @@ type LoginForm = {
     email: string;
     password: string;
     remember: boolean;
-    _token: string;
 };
 
 interface LoginProps {
@@ -34,7 +33,6 @@ export default function LoginPopup({ visible, status, canResetPassword }: LoginP
 		email: '',
 		password: '',
 		remember: false,
-		_token: csrf,
 	});
 
 	const dispatch = useDispatch();
