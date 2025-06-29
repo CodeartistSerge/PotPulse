@@ -112,7 +112,7 @@ export default function Landing() {
 									<img
 										src={item.image}
 										alt='PlanToWater'
-										className="w100% h-auto -mb-24 md:-mb-16 xl:-mb-32"
+										className="w100% h-auto -mb-24 md:-mb-16 xl:-mb-24"
 									/>
 									<div className="block bg-white w-[60%] h-[0] pb-[60%] rounded-lg ml-[20%] mb-12 shadow-lg relative">
 										<h5 className="text-[2.4576rem] text-center absolute w-[80%] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 leading-[1.2em] py-4">{item.title}</h5>
