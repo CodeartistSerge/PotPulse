@@ -50,23 +50,6 @@ export default function Landing() {
 								<img
 									src='/assets/logo/logo-w.svg'
 									alt='PlanToWater'
-									className="animate-[short-ping_1s_ease-in-out_infinite]
-										w-[12rem]
-										md:w-[17rem]
-										h-auto
-										absolute
-										top-1/2
-										left-1/2
-										-translate-x-1/2
-										-translate-y-1/2
-										stroke-white
-										z-5
-										opacity-60
-									"
-								/>
-								<img
-									src='/assets/logo/logo-w.svg'
-									alt='PlanToWater'
 									className="
 										w-[12rem]
 										md:w-[17rem]
