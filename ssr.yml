@@ -1,0 +1,8 @@
+# lets pm2 run the php artisan inertia:start-ssr
+apps:
+  # Run php artisan queue:listen to execute queue job
+  - script    : 'artisan'
+    name      : 'artisan-start-ssr'
+    cwd       : '/var/www/PotPulse/'
+    args      : 'inertia:start-ssr'
+    interpreter : 'php'
