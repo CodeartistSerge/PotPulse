@@ -1,13 +1,10 @@
-name: Deploy to Server
+name: deploy
 
 on:
-  push:
+  workflow_run:
+    workflows: ['tests', 'linter']
+    types: [completed]
     branches:
-      - develop
-      - main
-  pull_request:
-    branches:
-      - develop
       - main
 
 jobs:
@@ -24,4 +21,5 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           script: |
             whoami
+            echo "I am the test"
             cd /var/www/PotPulse
