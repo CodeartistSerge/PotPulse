@@ -20,4 +20,11 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.SSH_PORT }}
           script: |
-            cd /var/www/PotPulse && git pull origin main && node -v && whoami > ami.who && nvm use default && npm run build && php artisan optimize:clear
+            cd /var/www/PotPulse
+            git pull origin main
+            npm run build
+            php artisan config:clear
+            php artisan route:clear
+            php artisan view:clear
+            php artisan cache:clear
+            php artisan optimize:clear
