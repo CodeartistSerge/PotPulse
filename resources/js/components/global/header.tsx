@@ -19,7 +19,7 @@ export default function Header() {
 			before:shadow-lg
 		">
 			<div className=' flex-grow-0'>
-				<Link href='/' className="flex flex-row items-center gap-2 md:gap-4 no-underline">
+				<Link href='/' className="flex flex-row items-center gap-2 md:gap-4 no-underline brightness-100">
 					<img
 						src='/assets/logo/logo-w.svg'
 						alt='PlanToWater'
