@@ -11,7 +11,7 @@ export default function Landing() {
 	let counter = 0;
 	const dispatch = useDispatch();
 	const handleJoinBetaClick = () => {
-		dispatch(openPopup('login'))
+		dispatch(openPopup('register'))
 	}
 	return (
 		<>
