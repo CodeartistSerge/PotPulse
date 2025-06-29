@@ -22,9 +22,11 @@ jobs:
           script: |
             cd /var/www/PotPulse
             git pull origin main
-            npm run build
+            pm2 stop artisan-start-ssr
+            npm run build:ssr
             php artisan config:clear
             php artisan route:clear
             php artisan view:clear
             php artisan cache:clear
             php artisan optimize:clear
+            pm2 start artisan-start-ssr
