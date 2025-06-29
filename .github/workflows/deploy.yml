@@ -20,6 +20,11 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.SSH_PORT }}
           script: |
-            whoami
-            echo "I am the test"
             cd /var/www/PotPulse
+            git pull origin main
+            npm run build
+            php artisan config:clear
+            php artisan route:clear
+            php artisan view:clear
+            php artisan cache:clear
+            php artisan optimize:clear
