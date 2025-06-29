@@ -31,7 +31,7 @@ export default function Header() {
 			<div className='flex-grow-1 flex justify-end items-center'>
 				{(() => {
 					if(auth?.user?.name)
-						return <LinkButton mod="white" method="get" purpose="header" onClick={handleLogin} href={route('dashboard')}>{auth.user.name}</LinkButton>
+						return <LinkButton mod="white" method="get" purpose="header" href={route('dashboard')}>Dashboard</LinkButton>
 					else
 						return <Button mod="white" purpose="header" onClick={handleLogin} >Log In</Button>
 				})()}
