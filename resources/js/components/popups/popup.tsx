@@ -55,7 +55,7 @@ export default function Popup({ name, children, visible=true, direction, backgro
 				"max-w-[140rem] max-h-[calc(100vh-18rem)] w-[100%]",
 				"mx-[3rem]",
 				"flex justify-center",
-				"bg-[image:url(/assets/leaf2.svg)] bg-no-repeat decor-right-top",
+				"bg-[image:url('$assets/leaf2.svg')] bg-no-repeat decor-right-top",
 				"rounded-[2rem]",
 				"bg-[white]",
 				wrapClassName
@@ -65,7 +65,7 @@ export default function Popup({ name, children, visible=true, direction, backgro
 					"py-[6rem] sm:py-[8rem] px-[6rem] md:px-[12rem]",
 					"flex-grow-1",
 					"*:relative *:z-3",
-					"bg-[image:url(/assets/leaf.svg)] bg-no-repeat decor-left-bottom",
+					"bg-[image:url('$assets/leaf.svg')] bg-no-repeat decor-left-bottom",
 					className
 				)}>
 					<Button
