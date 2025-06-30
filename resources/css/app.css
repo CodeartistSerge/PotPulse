@@ -361,3 +361,14 @@
 @utility how-it-work-pt-* {
 	padding-top: calc(--value(integer) * var(--how-it-works-index) * 0.25rem);
 }
+
+@utility max-w-inherit {
+	max-width: inherit;
+}
+
+@utility decor-left-bottom {
+	background-position: bottom -24rem left 0;
+}
+@utility decor-right-top {
+	background-position: top -13rem right -3rem;
+}
