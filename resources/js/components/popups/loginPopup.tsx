@@ -50,7 +50,7 @@ export default function LoginPopup({ visible, status, canResetPassword }: LoginP
 	}
 
 	return (
-		<Popup name="login" visible={ visible } className='max-w-[50rem] md:px-[6rem]'>
+		<Popup name="login" visible={ visible } className="md:px-[6rem]" wrapClassName="max-w-[50rem]">
 			<h4 className="text-center mb-[3rem] sm:mb-[6rem]">Please Log In</h4>
             <form className="flex flex-col gap-6" onSubmit={submit}>
                 <div className="grid gap-4 sm:gap-6">
