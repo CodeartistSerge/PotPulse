@@ -3,7 +3,7 @@ import Layout from '@/layouts/main-layout';
 import Container from '@/components/layout/container';
 import { LinkButton } from '@/components/ui/button';
 
-export default function Landing() {
+export default function ThankYou() {
 	return (
 		<>
 			<Head
