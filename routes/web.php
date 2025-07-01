@@ -9,8 +9,8 @@ Route::get('/', function () {
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('dashboard', function () {
-        return Inertia::render('thank-you');
-        // return Inertia::render('dashboard');
+        // return Inertia::render('thank-you');
+        return Inertia::render('dashboard');
     })->name('dashboard');
 });
 

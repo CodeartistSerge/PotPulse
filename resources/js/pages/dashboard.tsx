@@ -2,8 +2,10 @@ import { Head, usePage } from '@inertiajs/react'
 import Layout from '@/layouts/main-layout';
 import Container from '@/components/layout/container';
 import { SharedData } from '@/types';
-import { cn } from '@/lib/utils';
+import { cn, pre } from '@/lib/utils';
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
+import Button from '@/components/ui/button';
+import { SquarePen } from 'lucide-react';
 
 export default function Dashboard() {
 	const { auth } = usePage<SharedData>().props;
@@ -74,33 +76,58 @@ export default function Dashboard() {
 						}, ...categories].map((category) => {
 							const plants = data.filter(v => category.id == v.category)
 							return (
-								<ul className={cn(
-									"not-last:mb-[4rem]"
-								)}>
+								<ul
+									key={`category-${category.id}`}
+									className={cn(
+										"not-last:mb-[4rem]"
+									)}
+								>
 									<li
-										key={`category-${category.id}`}
+										key={`category-${category.id}-heading`}
 										className={cn(
-											"not-last:mb-[4rem]"
+											"relative",
+											"flex flex-row flex-nowrap items-center place-content-between",
+											"not-last:mb-[4rem]",
+											"before:content[''] before:block before:absolute before:w-[calc(100%+4rem)] before:h-[4px] before:bg-text before:-left-[2rem] before:top-[0.8em]",
 										)}
 									>
-										<h6 className="uppercase">{category.name}</h6>
+										<h6
+											className={cn(
+												"uppercase",
+												"px-[0.5em] mb-0",
+												"bg-white",
+												"inline-block z-1 relative",
+											)}
+										>
+											{category.name}
+										</h6>
+										<span
+											className={cn(
+												"px-[1rem] -mr-[1rem]",
+												"bg-white",
+												"inline-block z-1 relative",
+											)}
+										>
+											<Button size="icon" mod="outline" className="bg-white"><SquarePen className="stroke-text" /></Button>
+										</span>
 									</li>
 									{(() => plants.map((plant) => (
 										<li
+											key={plant.id}
 											className={cn(
 												"flex flex-row flex-wrap",
 												"bg-accent/10 rounded-2xl",
 												// "h-[3em]",
 												"not-last:mb-[4rem] px-[2rem] -mx-[2rem] py-[2rem]",
 											)}
-											key={plant.id}
 										>
 											<p className="w-[100%] flex-grow-1 first:pt-[1rem] mb-0 pl-[12rem]">{plant.name}</p>
 											<p className="w-[10rem] relative">
 												<img className="w-[8.5rem] absolute bottom-0 right-0" src="/assets/dashboard_plant_placeholder.png" alt="a generic plant photo" />
 											</p>
-											<p className="w-[0rem] flex-grow-1 pl-[2rem]">
-												<small>Next notification on 11/12/25</small>
+											<p className="w-[0rem] flex-grow-1 pl-[2rem] flex flex-row flex-nowrap items-center">
+												<small className="flex-grow-1 pr-[1rem] mb-0">Next notification in 7 days (Mon, 11 Dec)</small>
+												<Button size="icon" className="bg-highlight"><SquarePen className="stroke-white" /></Button>
 											</p>
 										</li>
 									)))()}
