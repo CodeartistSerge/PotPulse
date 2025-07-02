@@ -2,8 +2,7 @@ import { Head, usePage } from '@inertiajs/react'
 import Layout from '@/layouts/main-layout';
 import Container from '@/components/layout/container';
 import { SharedData } from '@/types';
-import { cn, pre } from '@/lib/utils';
-import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
+import { cn } from '@/lib/utils';
 import Button from '@/components/ui/button';
 import { SquarePen } from 'lucide-react';
 
@@ -70,7 +69,7 @@ export default function Dashboard() {
 								category: 1874
 							},
 						]
-						return [{
+						const TheList = [{
 							id: null,
 							name: 'default'
 						}, ...categories].map((category) => {
@@ -131,9 +130,25 @@ export default function Dashboard() {
 											</p>
 										</li>
 									)))()}
+									<li key="{`category-${category.id}-footer`}" className={cn(
+										"-mt-[2rem]"
+									)}>
+										<small>{plants?.length} total plants, next notification in 7 days (Mon, 11 Dec)</small>
+									</li>
 								</ul>
 							);
-						})
+						});
+						return (
+							<>
+								<div className={cn(
+									"flex flex-column gap-8 -mx-[2rem] mb-[2rem]"
+								)}>
+									<Button size="small">Add Plant</Button>
+									<Button size="small">Add Category</Button>
+								</div>
+								{TheList}
+							</>
+						);
 					})()}
 				</Container>
 			</Layout>

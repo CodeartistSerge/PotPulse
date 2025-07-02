@@ -29,12 +29,13 @@ const buttonVariants = cva([
 		size: {
 			regular: [],
 			large: [],
-			small: [],
+			small: [
+				'py-[0.5em]! px-[1.5em]!',
+				'text-[1.65rem]! font-regular'
+			],
 			icon: [
-				'py-[0.5em]!',
-				'px-[0.5em]!',
-				'w-[2em]!',
-				'h-[2em]!',
+				'py-[0.5em]! px-[0.5em]!',
+				'w-[2em]! h-[2em]!',
 				'leading-[1em]!',
 				'flex',
 				'items-center',
